@@ -7,5 +7,5 @@
 - Galería ampliable y modal de privacidad: apertura y cierre comprobados.
 - Google Maps: el enlace corto devuelve una redirección a Av. La Paz 313-A, Arequipa 04001. El mapa incrustado se solicita solo al pulsar su botón.
 - JavaScript: comprobación de sintaxis correcta; sin errores de consola observados.
-- Proyecto registrado en Sites, sin publicación ni versión desplegada. Los archivos de la vista previa están guardados localmente.
+- El alojamiento público definitivo está pendiente; la vista previa se ejecuta localmente.
 - Facebook queda como texto hasta recibir la URL exacta del perfil.
