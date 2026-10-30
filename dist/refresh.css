@@ -1,0 +1,17 @@
+/* Visual identity: white space, plum accents and warm gold details. */
+:root{--ivory:#fffdfb;--ink:#352c31;--muted:#695e64;--line:#e7dfe3;--accent:#713d56;--gold:#a17a3e}
+body{background:#fff;font-family:'Segoe UI',Arial,sans-serif}
+h1,h2,h3{font-family:'Segoe UI',Arial,sans-serif;font-weight:650;line-height:1.12;letter-spacing:-1.5px}
+h1{font-weight:750}h3{letter-spacing:-.5px}em{font-style:normal;color:var(--accent);font-weight:inherit}
+.header{background:rgba(255,255,255,.97);border-color:#eee6e9}.hero{position:relative}.hero h1{font-size:clamp(44px,4.6vw,66px);letter-spacing:-2.4px}.hero .eyebrow{color:var(--accent)}
+.hero-photo picture{border-radius:130px 130px 28px 28px;box-shadow:0 20px 50px #49263812}.photo-label{background:#fffaf6}
+.button{border-radius:999px;background:var(--accent);border-color:var(--accent);box-shadow:0 5px 15px #713d561a;padding:16px 28px;font-size:13px}.button:hover{background:#54283e;border-color:#54283e}.text-link{color:var(--accent);font-weight:600;border-color:#c2a1b1}.hero-actions .text-link{padding:12px 20px;border:1px solid #dcc7d1;border-radius:999px;background:#fff}
+.values .wrap{background:linear-gradient(115deg,#fcf8f2,#f5edf1);border-color:#e9dce2;box-shadow:0 10px 28px #49263809}
+.credentials{background:#f5f0f3}.credential{background:#fff;border-radius:18px;border-top:2px solid #b48a48;box-shadow:0 6px 20px #49263805}.credential h3{font-size:20px}.credential .meta{color:#79566a}
+.treatment-grid{border:0;gap:18px}.treatment{border:1px solid #e9dfe4;border-radius:22px;background:#fff;box-shadow:0 6px 22px #49263805;transition:background .2s,transform .2s,box-shadow .2s}.treatment:hover{background:#fbf6f8;transform:translateY(-3px);box-shadow:0 12px 28px #49263810}.treatment-top{color:var(--accent)}
+.clinic{background:#352c31;color:#fff}.clinic em{color:#e7c690}.clinic p{color:#e1d6dc}.clinic .eyebrow{color:#e7c690}.gallery-item{border-radius:22px}.gallery-item>span{color:#fff}.professional h3{font-size:30px}
+.appointment-form{background:#fcf9fb;border-color:#e8dbe2;border-radius:26px;box-shadow:0 15px 45px #713d560c}input,select,textarea{background:#fff;border-radius:12px;border-color:#d9ccd3}.phone{font-family:'Segoe UI',Arial,sans-serif;font-weight:600;color:var(--accent)}
+.location{background:#f5f0f3}.facade img{border-radius:28px}.facade>span{border-radius:12px;background:#fff}.map-load{background:#fff;border-color:#e4d4dc;border-radius:22px}.map-load strong{font-family:inherit;font-weight:600}
+footer{background:#fff}.footer-bottom{border-color:#e8dfe4}.whatsapp{background:var(--accent);border-color:#a4778c}.whatsapp:hover{background:#54283e}.menu-toggle{border-radius:99px}.signature{color:var(--accent)}
+@media(max-width:800px){nav{background:#fff}.hero h1{font-size:42px}.hero-photo picture{border-radius:100px 100px 24px 24px}}
+@media(max-width:600px){.hero h1{font-size:45px;letter-spacing:-1.8px}h2{font-size:34px;letter-spacing:-1.1px}.credential h3{font-size:18px}.treatment-grid{gap:12px}.treatment{padding:22px 16px}.treatment h3{font-size:20px}.hero-photo picture{border-radius:140px 140px 24px 24px}.hero-actions .text-link{font-size:12px}.button{padding:15px 23px}.appointment-form{padding:25px 21px}}
