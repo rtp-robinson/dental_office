@@ -39,7 +39,13 @@ El formulario no usa una base de datos ni almacenamiento local. Abre un mensaje 
 
 ## Estado de publicación
 
-El código se guarda en GitHub; la web no se ha desplegado en Sites ni se ha configurado GitHub Pages. No hay automatizaciones de despliegue en este repositorio.
+El código se guarda en GitHub. Existe una versión anterior en Sites con acceso privado; las nuevas modificaciones se trabajan en este repositorio. El nuevo alojamiento está pendiente de decidir. No hay automatizaciones de despliegue en este repositorio.
+
+## Trabajo diario en Windows
+
+Esta carpeta `dental_office` es el proyecto editable conectado a `origin` en GitHub. Ábrela completa en Visual Studio Code. Para iniciar la vista previa, haz doble clic en `ABRIR-VISTA-PREVIA.cmd` y visita http://127.0.0.1:8768. Si ya hay un servidor abierto en ese puerto, utiliza esa ventana en lugar de iniciar otro.
+
+Antes de editar, con el trabajo anterior guardado en commits, ejecuta `git pull --ff-only`. Edita los archivos de `dist/`, guarda y revisa la vista previa. Después usa `git status`, añade solo los archivos correspondientes con `git add`, crea un commit descriptivo con `git commit -m "Descripción del cambio"` y ejecuta `git push`. Organiza los commits por avances reales. Git puede pedirte iniciar sesión en GitHub para subir cambios por primera vez.
 
 La vista previa mantiene `noindex,nofollow`. Antes de publicar, con autorización de la titular, revisar la información y privacidad, añadir la URL canónica y metadatos sociales definitivos, y retirar esa restricción de indexación.
 
