@@ -55,7 +55,7 @@ Un enlace `href="#cita"` lleva al elemento `id="cita"`. Si cambias un identifica
 
 `motion.css` se carga después de las otras hojas y `motion.js` después de `app.js`, para observar también las tarjetas generadas. No requieren bibliotecas externas.
 
-El patrón de mejora progresiva mantiene el contenido visible incluso sin JavaScript. Un `IntersectionObserver` detecta cuándo entra cada elemento en pantalla y ejecuta una sola aparición mediante Web Animations API; después deja de observarlo. Los movimientos duran 650 ms, con un escalonado máximo de 195 ms. No hay escuchas continuas de desplazamiento ni carruseles automáticos. Las tarjetas y las fotos responden al cursor mediante CSS.
+El patrón de mejora progresiva mantiene el contenido visible incluso sin JavaScript. Un `IntersectionObserver` detecta cuándo entra cada elemento en pantalla y ejecuta una sola aparición mediante Web Animations API; después deja de observarlo. Los movimientos duran 1300 ms, con un escalonado máximo de 330 ms. No hay escuchas continuas de desplazamiento ni carruseles automáticos. Las tarjetas y las fotos responden al cursor mediante CSS.
 
 La preferencia `prefers-reduced-motion` desactiva los efectos y cancela las animaciones activas si cambia durante la visita. El foco del teclado también cancela una aparición en curso sobre el elemento enfocado.
 

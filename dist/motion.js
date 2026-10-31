@@ -9,13 +9,13 @@
       observer.unobserve(entry.target);
       if (reducedMotion.matches || entry.target.contains(document.activeElement)) return;
       const animation = entry.target.animate([
-        { opacity: 0.35, transform: 'translateY(22px)' },
+        { opacity: 0.15, transform: 'translateY(36px)' },
         { opacity: 1, transform: 'translateY(0)' }
-      ], { duration: 650, delay: Math.min(index * 65, 195), easing: 'cubic-bezier(.2,.7,.2,1)' });
+      ], { duration: 1300, delay: Math.min(index * 110, 330), easing: 'cubic-bezier(.22,.45,.25,1)', fill: 'backwards' });
       running.add(animation);
       animation.finished.catch(() => {}).finally(() => running.delete(animation));
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.18 });
 
   document.querySelectorAll('.hero h1, .hero-photo, main h2, .values .wrap, .credential, .treatment, .gallery-item, .facade, .creator-inner')
     .forEach(element => observer.observe(element));
