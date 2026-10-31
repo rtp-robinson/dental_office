@@ -1,0 +1,29 @@
+/* Small, finite movements keep the clinic calm and the interface responsive. */
+.button, .hero-actions .text-link { transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.credential { transition: transform .3s ease, box-shadow .3s ease; }
+.gallery-item img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+@media (hover:hover) and (pointer:fine) {
+  .button:hover, .hero-actions .text-link:hover { transform: translateY(-3px); box-shadow: 0 10px 24px #713d5625; }
+  .credential:hover { transform: translateY(-5px); box-shadow: 0 14px 28px #49263812; }
+  .gallery-item:hover img { transform: scale(1.035); }
+}
+.button:active { transform: scale(.97); }
+.creator-credit { margin-top: 12px; background: #30272e; color: #e9dce4; border-top: 1px solid #735264; }
+.creator-inner { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px; padding:27px 0; font-size:13px; }
+.creator-link { position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; gap:12px; padding:13px 21px; border:1px solid #aa8298; border-radius:999px; color:#fff; background:linear-gradient(110deg,#493340,#30272e); font-size:16px; font-weight:650; letter-spacing:.2px; text-decoration:none; transition:transform .25s ease, box-shadow .3s ease, border-color .3s ease; }
+.creator-link::before { content:""; position:absolute; z-index:-1; inset:-80% -50%; background:linear-gradient(110deg,transparent 38%,#e5c1da55 48%,#fff9 50%,transparent 62%); transform:translateX(-100%); pointer-events:none; }
+.creator-link:is(:hover,:focus-visible) { border-color:#edc88c; box-shadow:0 0 0 4px #c29bb516,0 0 28px #d5a3c237; transform:translateY(-2px); }
+.creator-link:is(:hover,:focus-visible)::before { animation:creator-scan .85s ease both; }
+.creator-link:focus-visible { outline:2px solid #edc88c; outline-offset:5px; }
+.creator-link:active { transform:scale(.95); border-color:#fff; box-shadow:0 0 0 6px #d5a3c22e,0 0 35px #edc88c55; }
+.code-mark { font-family:Consolas,monospace; color:#edc88c; font-size:18px; }
+.creator-arrow { color:#edc88c; transition:transform .25s; }
+.creator-link:is(:hover,:focus-visible) .creator-arrow { transform:translate(2px,-2px); }
+@keyframes creator-scan { to { transform:translateX(100%); } }
+@media(max-width:600px) { .creator-inner { flex-direction:column; gap:10px; padding:26px 0 94px; } }
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after { animation:none !important; transition:none !important; }
+  .button:hover, .button:active, .credential:hover, .treatment:hover, .gallery-item:hover img,
+  .hero-actions .text-link:hover, .creator-link:is(:hover,:focus-visible,:active), .creator-link:is(:hover,:focus-visible) .creator-arrow { transform:none; }
+}
