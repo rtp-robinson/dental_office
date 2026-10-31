@@ -21,6 +21,8 @@ dental_office/
 │   ├── styles.css      # Diseño base y adaptación responsive
 │   ├── refresh.css     # Paleta, tipografía y acabados actuales
 │   ├── app.js          # Datos e interacciones
+│   ├── motion.css      # Microinteracciones y firma del autor
+│   ├── motion.js       # Apariciones al desplazarse
 │   └── assets/         # Fotografías, logotipo e ilustraciones
 ├── ABRIR-VISTA-PREVIA.cmd
 ├── VERIFICACION.md     # Comprobaciones anteriores
@@ -48,6 +50,16 @@ Aunque se llama `dist`, contiene el código editable y los archivos listos para 
 Un enlace `href="#cita"` lleva al elemento `id="cita"`. Si cambias un identificador, actualiza sus enlaces y selectores.
 
 ## Arquitectura de software
+
+### Movimiento y crédito de autor
+
+`motion.css` se carga después de las otras hojas y `motion.js` después de `app.js`, para observar también las tarjetas generadas. No requieren bibliotecas externas.
+
+El patrón de mejora progresiva mantiene el contenido visible incluso sin JavaScript. Un `IntersectionObserver` detecta cuándo entra cada elemento en pantalla y ejecuta una sola aparición mediante Web Animations API; después deja de observarlo. Los movimientos duran 650 ms, con un escalonado máximo de 195 ms. No hay escuchas continuas de desplazamiento ni carruseles automáticos. Las tarjetas y las fotos responden al cursor mediante CSS.
+
+La preferencia `prefers-reduced-motion` desactiva los efectos y cancela las animaciones activas si cambia durante la visita. El foco del teclado también cancela una aparición en curso sobre el elemento enfocado.
+
+El crédito «Diseñado y desarrollado por Roberto Tejada» está al final del footer en `index.html`. Su enlace `.creator-link` abre Instagram en otra pestaña. Para cambiar el nombre o destino, edita ese enlace. El destello tecnológico, el foco visible y la respuesta al pulsar están en `motion.css`; el enlace funciona sin JavaScript y no retrasa la navegación.
 
 Es una web estática ejecutada en el navegador con HTML, CSS y JavaScript nativos. No utiliza framework, servidor de aplicación, API propia ni base de datos. El servidor local solo entrega archivos; no procesa reservas.
 
