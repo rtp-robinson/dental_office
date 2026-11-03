@@ -15,3 +15,8 @@ h1{font-weight:750}h3{letter-spacing:-.5px}em{font-style:normal;color:var(--acce
 footer{background:#fff}.footer-bottom{border-color:#e8dfe4}.whatsapp{background:var(--accent);border-color:#a4778c}.whatsapp:hover{background:#54283e}.menu-toggle{border-radius:99px}.signature{color:var(--accent)}
 @media(max-width:800px){nav{background:#fff}.hero h1{font-size:42px}.hero-photo picture{border-radius:100px 100px 24px 24px}}
 @media(max-width:600px){.hero h1{font-size:45px;letter-spacing:-1.8px}h2{font-size:34px;letter-spacing:-1.1px}.credential h3{font-size:18px}.treatment-grid{gap:12px}.treatment{padding:22px 16px}.treatment h3{font-size:20px}.hero-photo picture{border-radius:140px 140px 24px 24px}.hero-actions .text-link{font-size:12px}.button{padding:15px 23px}.appointment-form{padding:25px 21px}}
+
+.professional > div { grid-column: 1 / -1; }
+@media (max-width: 600px) {
+  .professional .gallery-item:last-child { grid-column: 1 / -1; }
+}
