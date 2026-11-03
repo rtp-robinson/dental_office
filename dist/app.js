@@ -11,7 +11,7 @@ const treatments = [
  ['Odontología preventiva','Orientación y controles para acompañarte en el cuidado diario de tu sonrisa.']
 ];
 const credentials = [
- ['GRADO ACADÉMICO','2024','Bachiller en Odontología','Universidad de San Martín de Porres.'],
+ ['GRADO ACADÉMICO','2024','Titulo Profesional en Odontología','Universidad de San Martín de Porres.'],
  ['COLEGIATURA','COP 62275','Colegiatura profesional','Colegio Odontológico del Perú.'],
  ['CONSTANCIA','2026–2027','Habilitación profesional','Vigencia documental hasta el 31/01/2027.'],
  ['FORMACIÓN CLÍNICA','2024','Internado odontológico','Hospital Militar III DE, Arequipa.'],
