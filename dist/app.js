@@ -54,34 +54,3 @@ document.querySelectorAll('.privacy-open').forEach(b=>b.addEventListener('click'
 document.querySelectorAll('dialog').forEach(d=>{d.querySelector('.dialog-close').addEventListener('click',()=>d.close());d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}})});
 document.querySelectorAll('.gallery-item').forEach(b=>b.addEventListener('click',()=>{const d=document.querySelector('#gallery-dialog');const im=document.querySelector('#lightbox-image');im.src=b.dataset.image;im.alt=b.dataset.caption;document.querySelector('#lightbox-caption').textContent=b.dataset.caption;d.showModal()}));
 document.querySelector('#load-map').addEventListener('click',e=>{const iframe=document.createElement('iframe');iframe.src='https://maps.google.com/maps?q=Av.%20La%20Paz%20313%20A%2C%20Arequipa%2C%20Peru&output=embed';iframe.title='Mapa de referencia de Av. La Paz 313 A, Arequipa';iframe.referrerPolicy='no-referrer-when-downgrade';document.querySelector('#map-container').append(iframe);e.currentTarget.hidden=true; e.currentTarget.style.display='none'});
-
-
-// Load the decorative video only when visible and motion is allowed.
-const formationVideo = document.querySelector('#formation-video');
-const formationMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-let formationVisible = false;
-
-function updateFormationVideo() {
-  if (formationMotion.matches) {
-    formationVideo.pause();
-    formationVideo.removeAttribute('src');
-    formationVideo.load();
-    return;
-  }
-  if (formationVisible && !document.hidden) {
-    formationVideo.muted = true;
-    if (!formationVideo.getAttribute('src')) {
-      formationVideo.src = 'assets/formacion.mp4';
-    }
-    formationVideo.play().catch(() => {});
-  } else {
-    formationVideo.pause();
-  }
-}
-const formationObserver = new IntersectionObserver(entries => {
-  formationVisible = entries[0].isIntersecting;
-  updateFormationVideo();
-}, { threshold: 0.1 });
-formationObserver.observe(formationVideo);
-formationMotion.addEventListener('change', updateFormationVideo);
-document.addEventListener('visibilitychange', updateFormationVideo);

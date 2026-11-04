@@ -20,19 +20,3 @@ footer{background:#fff}.footer-bottom{border-color:#e8dfe4}.whatsapp{background:
 @media (max-width: 600px) {
   .professional .gallery-item:last-child { grid-column: 1 / -1; }
 }
-
-.formation-decoration {
-  width: min(100%, 300px);
-  overflow: hidden;
-  border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 8px 28px #49263808;
-}
-.formation-decoration video {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-@media (max-width: 600px) {
-  .formation-decoration { width: 230px; margin-inline: auto; }
-}
