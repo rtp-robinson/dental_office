@@ -187,9 +187,8 @@
               name="treatment" required>
               <option value="">Selecciona una opción</option>
               <option>Evaluación odontológica</option>
-            </select></label><label for="date">Fecha preferida *<input id="date" name="date" type="date" required
-              max="2099-12-31"></label><label for="time">Hora preferida *<input id="time" name="time" type="time"
-              required></label><label class="full" for="comment">Comentario opcional no clínico<textarea id="comment"
+            </select></label><label class="schedule-field" for="date"><span class="schedule-label">Fecha preferida * <span aria-hidden="true">▦</span></span><input id="date" name="date" type="date" required
+              max="2099-12-31"></label><fieldset class="schedule-field time-field"><legend>Hora preferida *</legend><div class="time-controls"><label for="time">Hora<select id="time" name="time" required><option value="">Hora</option></select></label><span aria-hidden="true">:</span><label for="minute">Minutos<select id="minute" name="minute" required><option value="">Min.</option><option value="00">00</option><option value="30">30</option></select></label></div></fieldset><label class="full" for="comment">Comentario opcional no clínico<textarea id="comment"
               name="comment" rows="3" maxlength="300" placeholder="Por ejemplo: prefiero que me contacten por la tarde."
               aria-describedby="privacy-hint"></textarea></label></div>
         <p id="privacy-hint" class="fine">No incluyas síntomas, diagnósticos, documentos ni información clínica. Los

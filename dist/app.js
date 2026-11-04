@@ -32,19 +32,26 @@ toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expand
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 const date=document.querySelector('#date');
+const time=document.querySelector('#time');
+const minute=document.querySelector('#minute');
+for(let hour=0;hour<24;hour++){
+ const value=String(hour).padStart(2,'0');
+ time.add(new Option(value,value));
+}
 function limaToday(){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Lima',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
 date.min=limaToday();
 document.querySelector('#year').textContent=new Intl.DateTimeFormat('es-PE',{timeZone:'America/Lima',year:'numeric'}).format(new Date());
 const form=document.querySelector('#appointment-form');
 form.addEventListener('input',()=>{document.querySelector('#form-error').textContent='';document.querySelector('#form-status').replaceChildren();document.querySelector('#name').setCustomValidity('');date.setCustomValidity('')});
 form.addEventListener('submit',e=>{
- e.preventDefault();const name=document.querySelector('#name');const time=document.querySelector('#time');const error=document.querySelector('#form-error');date.min=limaToday();
+ e.preventDefault();const name=document.querySelector('#name');const error=document.querySelector('#form-error');date.min=limaToday();
  if(name.value.trim().length<2){name.setCustomValidity('Escribe tu nombre con al menos dos caracteres.');name.reportValidity();return}
  if(date.value<date.min){error.textContent='Selecciona una fecha de hoy en adelante.';date.setCustomValidity(error.textContent);date.reportValidity();return}
- if(new Date(`${date.value}T${time.value}:00-05:00`).getTime()<=Date.now()){error.textContent='Selecciona una fecha y hora futuras (hora de Arequipa).';return}
  if(!form.reportValidity())return;
+ const preferredTime=`${time.value}:${minute.value}`;
+ if(new Date(`${date.value}T${preferredTime}:00-05:00`).getTime()<=Date.now()){error.textContent='Selecciona una fecha y hora futuras (hora de Arequipa).';return}
  const displayDate=date.value.split('-').reverse().join('/');
- const message=`Hola, Dra. Danika. Quisiera solicitar una cita.\n\nNombre: ${name.value.trim()}\nTratamiento: ${treatment.value}\nFecha preferida: ${displayDate}\nHora preferida: ${time.value} (Arequipa)${document.querySelector('#comment').value.trim()?'\nComentario no clínico: '+document.querySelector('#comment').value.trim():''}\n\nEntiendo que la cita está sujeta a confirmación del consultorio.`;
+ const message=`Hola, Dra. Danika. Quisiera solicitar una cita.\n\nNombre: ${name.value.trim()}\nTratamiento: ${treatment.value}\nFecha preferida: ${displayDate}\nHora preferida: ${preferredTime} (Arequipa)${document.querySelector('#comment').value.trim()?'\nComentario no clínico: '+document.querySelector('#comment').value.trim():''}\n\nEntiendo que la cita está sujeta a confirmación del consultorio.`;
  const url='https://wa.me/51926388546?text='+encodeURIComponent(message);
  const status=document.querySelector('#form-status');status.replaceChildren(document.createTextNode('Tu solicitud está preparada. Si WhatsApp no se abrió, '));
  const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.className='inline-link';link.textContent='abre tu mensaje aquí';status.append(link);
