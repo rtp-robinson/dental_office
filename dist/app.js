@@ -34,10 +34,19 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 const date=document.querySelector('#date');
 const time=document.querySelector('#time');
 const minute=document.querySelector('#minute');
-for(let hour=0;hour<24;hour++){
+for(let hour=9;hour<=18;hour++){
+ if(hour===13)continue;
  const value=String(hour).padStart(2,'0');
  time.add(new Option(value,value));
 }
+function updateMinutes(){
+ const lastSlot=time.value==='18';
+ const halfHour=minute.querySelector('option[value="30"]');
+ halfHour.disabled=lastSlot;
+ if(lastSlot&&minute.value==='30')minute.value='00';
+}
+time.addEventListener('change',updateMinutes);
+function isSunday(value){return new Date(`${value}T12:00:00Z`).getUTCDay()===0}
 function limaToday(){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Lima',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
 date.min=limaToday();
 document.querySelector('#year').textContent=new Intl.DateTimeFormat('es-PE',{timeZone:'America/Lima',year:'numeric'}).format(new Date());
@@ -47,8 +56,10 @@ form.addEventListener('submit',e=>{
  e.preventDefault();const name=document.querySelector('#name');const error=document.querySelector('#form-error');date.min=limaToday();
  if(name.value.trim().length<2){name.setCustomValidity('Escribe tu nombre con al menos dos caracteres.');name.reportValidity();return}
  if(date.value<date.min){error.textContent='Selecciona una fecha de hoy en adelante.';date.setCustomValidity(error.textContent);date.reportValidity();return}
+ if(date.value&&isSunday(date.value)){error.textContent='Elige un día de lunes a sábado.';date.setCustomValidity(error.textContent);date.reportValidity();return}
  if(!form.reportValidity())return;
  const preferredTime=`${time.value}:${minute.value}`;
+ if(time.value==='18'&&minute.value!=='00'){error.textContent='La última hora disponible para solicitar una cita es 18:00.';return}
  if(new Date(`${date.value}T${preferredTime}:00-05:00`).getTime()<=Date.now()){error.textContent='Selecciona una fecha y hora futuras (hora de Arequipa).';return}
  const displayDate=date.value.split('-').reverse().join('/');
  const message=`Hola, Dra. Danika. Quisiera solicitar una cita.\n\nNombre: ${name.value.trim()}\nTratamiento: ${treatment.value}\nFecha preferida: ${displayDate}\nHora preferida: ${preferredTime} (Arequipa)${document.querySelector('#comment').value.trim()?'\nComentario no clínico: '+document.querySelector('#comment').value.trim():''}\n\nEntiendo que la cita está sujeta a confirmación del consultorio.`;

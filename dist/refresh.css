@@ -55,3 +55,8 @@ footer{background:#fff}.footer-bottom{border-color:#e8dfe4}.whatsapp{background:
 .time-controls label { min-width: 0; font-size: 12px; color: #715d68; }
 .time-controls select { margin-top: 5px; }
 .time-controls > span { padding-bottom: 11px; font-size: 24px; color: #9a617d; }
+.opening-hours { display: flex; align-items: center; gap: 14px; width: fit-content; max-width: 100%; margin: 20px 0; padding: 16px 20px; border: 1px solid #e9dce2; border-radius: 18px; background: linear-gradient(135deg,#fff,#fbf5f8); box-shadow: 0 8px 24px #49263809; }
+.opening-hours-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: none; border-radius: 13px; background: #f2e5eb; color: #87536d; font-size: 25px; }
+.opening-hours strong { display: block; color: #473b32; font-size: 14px; }
+.opening-hours p { margin-top: 2px; font-size: 13px; }
+.booking-hours { margin: 12px 0 20px; padding: 10px 14px; border-left: 3px solid #b48a48; border-radius: 0 10px 10px 0; background: #f5edf1; color: #604a56; font-size: 13px; }
