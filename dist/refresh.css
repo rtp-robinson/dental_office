@@ -113,40 +113,42 @@ footer{background:#fff}.footer-bottom{border-color:#e8dfe4}.whatsapp{background:
   .hero-actions .button, .hero-actions .text-link { width: 100%; }
 }
 
-/* Benefits ribbon: stronger editorial type and soft cards around the supplied icons. */
+/* Benefits ribbon: hero-style typography and the supplied illustrations. */
 .values .wrap {
   grid-template-columns: minmax(0,1fr) 86px minmax(0,1fr) 86px minmax(0,1fr);
   gap: 12px;
   padding: 20px 24px;
-  background: linear-gradient(105deg,#fbf5ed,#f7edf2 54%,#fcf8f2);
+  border: 0;
+  background: linear-gradient(105deg,#fbf7f3,#f7eff3 54%,#fbf7f3);
+  box-shadow: none;
 }
 .values .value-text {
   display: grid;
   place-items: center;
   min-height: 86px;
   padding: 12px 18px;
-  border: 1px solid #e8dbe0;
-  border-radius: 20px;
-  background: #ffffffb8;
-  color: #503c47;
-  font-family: Georgia,'Times New Roman',serif;
-  font-size: clamp(16px,1.35vw,20px);
-  font-weight: 600;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #49313e;
+  font-family: 'Segoe UI',Arial,sans-serif;
+  font-size: clamp(17px,1.45vw,21px);
+  font-weight: 750;
   line-height: 1.3;
-  letter-spacing: -.35px;
-  box-shadow: 0 6px 16px #713d5609;
+  letter-spacing: -.65px;
+  box-shadow: none;
 }
 .values .value-icon { align-self: center; justify-self: center; width: 82px; height: 82px; }
 .whatsapp { justify-content: center; width: 56px; height: 56px; padding: 14px; right: 18px; bottom: 18px; border-radius: 50%; }
 .whatsapp span { display: none; }
 @media (max-width: 800px) and (min-width: 601px) {
   .values .wrap { grid-template-columns: minmax(0,1fr) 56px minmax(0,1fr) 56px minmax(0,1fr); gap: 7px; padding: 14px; }
-  .values .value-text { min-height: 72px; padding: 8px; font-size: 15px; }
+  .values .value-text { min-height: 72px; padding: 8px; font-size: 16px; }
   .values .value-icon { width: 56px; height: 64px; }
 }
 @media (max-width: 600px) {
   .values .wrap { grid-template-columns: 58px minmax(0,1fr); gap: 10px 12px; padding: 18px; }
-  .values .value-text { min-height: 64px; padding: 10px 14px; font-size: 17px; }
+  .values .value-text { min-height: 64px; padding: 10px 14px; font-size: 18px; }
   .values .value-icon { width: 58px; height: 60px; }
-  .values .value-text:last-child { grid-column: 1 / -1; min-height: 58px; margin-top: 2px; border: 1px solid #e8dbe0; padding: 10px 14px; }
+  .values .value-text:last-child { grid-column: 1 / -1; min-height: 58px; margin-top: 2px; border: 0; padding: 10px 14px; }
 }
