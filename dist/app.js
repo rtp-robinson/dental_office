@@ -22,7 +22,7 @@ const credentials = [
 ];
 const tooth = '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M16 6c-5-4-11-2-11 4 0 5 3 8 4 14 .6 5 3 5 4 0l1-5c.5-3 3.5-3 4 0l1 5c1 5 3.4 5 4 0 1-6 4-9 4-14 0-6-6-8-11-4Z"/><path d="M12 5c2 2 4 3 7 3"/></svg>';
 document.querySelector('#credential-grid').innerHTML=credentials.map(c=>`<article class="credential"><div class="meta"><span>${c[0]}</span><span>${c[1]}</span></div><h3>${c[2]}</h3><p>${c[3]}</p></article>`).join('');
-document.querySelector('#treatment-grid').innerHTML=treatments.map((t,i)=>`<article class="treatment"><div class="treatment-top">${tooth}<span>${String(i+1).padStart(2,'0')}</span></div><h3>${t[0]}</h3><p>${t[1]}</p><a class="text-link" href="https://wa.me/51926388546?text=${encodeURIComponent('Hola, quisiera consultar sobre '+t[0]+'.')}" target="_blank" rel="noopener noreferrer" aria-label="Consultar sobre ${t[0]} por WhatsApp">Consultar tratamiento <span aria-hidden="true">↗</span></a></article>`).join('');
+document.querySelector('#treatment-grid').innerHTML=treatments.map((t,i)=>`<article class="treatment"><div class="treatment-top">${tooth}<span>${String(i+1).padStart(2,'0')}</span></div><h3>${t[0]}</h3><p>${t[1]}</p><a class="text-link" href="https://wa.me/51926388546?text=${encodeURIComponent('Hola, quisiera consultar sobre '+t[0]+'.')}" target="_blank" rel="noopener noreferrer" aria-label="Consultar sobre ${t[0]} por WhatsApp">Consultar por WhatsApp</a></article>`).join('');
 const treatment=document.querySelector('#treatment');
 treatments.forEach(([name])=>treatment.add(new Option(name,name)));
 const toggle=document.querySelector('.menu-toggle');
